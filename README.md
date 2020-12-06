@@ -1,2 +1,4 @@
 # AdventOfCode2020
-SQL solutions to the 2020 Advent of Code
+Solutions to the 2020 Advent of Code!
+
+Right now, they're just in SQL, but others may appear in R or even in Excel. :O
