@@ -3,7 +3,6 @@
 -- via SQL Server-------------------------
 
 declare @input varchar(max)
-declare @tmpString varchar(30)
 
 -- A small sample of data from the input file...
 set @input = 'clvxybjp
