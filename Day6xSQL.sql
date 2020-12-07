@@ -29,20 +29,19 @@ agez
 kfugexhdbvqrc
 wslhcyqzpboxita'
 
-
 -- Double carriage returns mean the start of a new group. 
 -- Single carriage return means a new person in the current group.
 -- Trial & error found that a carriage return in ascii is the 2-char sequence 13 & 10
 declare @pSep varchar(4) = concat('%',char(13),char(10),'%')
 declare @gSep varchar(7) = concat('%',char(13),char(10),char(13),char(10),'%')
 
-declare @allData varchar(max) 
 
 -- tokenize string by group...
+declare @allData varchar(max) 
 set @allData = @input 
 drop table if exists #Groups
 create table #Groups(gAnswer varchar(126),gID int identity)
--- 
+
 declare @curGrp varchar(126)
 while len(@allData) > 0
  begin
@@ -58,7 +57,7 @@ end
 set @allData = @input 
 drop table if exists #Persons
 create table #Persons(pAnswer varchar(26),pID int identity,gID int)
--- 
+
 declare @curPrsn varchar(26)
 while LEN(@allData) > 0
  begin
@@ -79,7 +78,6 @@ update #Persons
     from #Persons orig
         inner join cte src on orig.pID = src.pID
 
-
 -- Helper table listing all letters, a-z
 declare @n as int = ascii('a')
 drop table if exists #Letters
@@ -89,7 +87,6 @@ begin
     insert into #Letters(letter) values(char(@n))
     set @n = @n + 1
 end
-
 
 -- Question 1 -----------------------------------
 -- Each group gets an entry for each letter/question, if ANY person in the group answered yes to it
@@ -107,7 +104,6 @@ where charindex(letter,gAnswer) > 0
 select sum(DiffLetters)[Q1 Answer]
 from cte
 
-
 -- Question 2 -----------------------------------
 -- Each person gets an entry for each letter/question, if they answered yes to it
 drop table if exists #PrsnxLtr
@@ -115,7 +111,6 @@ select p.*, l.letter, 1[n]
 into #PrsnxLtr
 from #Persons p cross join #Letters l
 where charindex(letter,pAnswer) > 0 
-
 
 ;with cte as(
     select gID
