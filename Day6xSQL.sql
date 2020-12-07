@@ -35,7 +35,6 @@ wslhcyqzpboxita'
 declare @pSep varchar(4) = concat('%',char(13),char(10),'%')
 declare @gSep varchar(7) = concat('%',char(13),char(10),char(13),char(10),'%')
 
-
 -- tokenize string by group...
 declare @allData varchar(max) 
 set @allData = @input 
