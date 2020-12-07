@@ -2,9 +2,9 @@
 -- Day 6: : Custom Customs ---------------
 -- via SQL Server-------------------------
 
-declare @input varchar(max)
 
 -- A small sample of data from the input file...
+declare @input varchar(max)
 set @input = 'clvxybjp
 kripatlzy
 
