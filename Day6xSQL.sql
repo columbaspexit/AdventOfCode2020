@@ -2,7 +2,6 @@
 -- Day 6: : Custom Customs ---------------
 -- via SQL Server-------------------------
 
-
 -- A small sample of data from the input file...
 declare @input varchar(max)
 set @input = 'clvxybjp
