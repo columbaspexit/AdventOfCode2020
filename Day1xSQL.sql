@@ -5,8 +5,7 @@
 -- Data as pasted from site... 
 declare @input varchar(1200) = '1891
 1975
-1987
-1923...'
+1987...'
 
 -- Define separator pattern...
 declare @Sep varchar(4) = concat('%',char(13),char(10),'%')
@@ -30,21 +29,3 @@ where i.ExpEntry + j.ExpEntry = 2020
 select i.ExpEntry * j.ExpEntry * k.ExpEntry [Q2 Answer]
 from #Expenses i cross join #Expenses j cross join #Expenses k
 where i.ExpEntry + j.ExpEntry + k.ExpEntry = 2020
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
