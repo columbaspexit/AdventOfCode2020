@@ -2,32 +2,14 @@
 -- Day 6: : Custom Customs ---------------
 -- via SQL Server-------------------------
 
--- A small sample of data from the input file...
+-- Sample data from the input file...
 declare @input varchar(max)
 set @input = 'clvxybjp
 kripatlzy
 
 yrn
 labirzd
-noypr
-
-ioluwteykdrcavfgqh
-ioevhcfnwjduqyagkr
-syjgrehokavfdqwuic
-iroexhkqgauwsdbyfcv
-ykdiguarfqochwvex
-
-xjgrzncsiqhm
-ijzmquhasgxrcn
-rqczuimnxgh
-xodicfvgnqhrzm
-
-ai
-qjaw
-agez
-
-kfugexhdbvqrc
-wslhcyqzpboxita'
+noypr'
 
 -- Double carriage returns mean the start of a new group. 
 -- Single carriage return means a new person in the current group.
