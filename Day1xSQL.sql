@@ -26,6 +26,11 @@ select i.ExpEntry * j.ExpEntry[Q1 Answer]
 from #Expenses i cross join #Expenses j
 where i.ExpEntry + j.ExpEntry = 2020
 
+-- Question 2: What's the product of the THREE entries that sum to 2020?
+select i.ExpEntry * j.ExpEntry * k.ExpEntry [Q2 Answer]
+from #Expenses i cross join #Expenses j cross join #Expenses k
+where i.ExpEntry + j.ExpEntry + k.ExpEntry = 2020
+
 
 
 
