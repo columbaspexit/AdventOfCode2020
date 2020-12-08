@@ -10,7 +10,6 @@ declare @input varchar(max) = '13-14 f: ffffffffnfffvv
 -- Define separator pattern...
 declare @Sep varchar(4) = concat('%',char(13),char(10),'%')
 -- Split @input into rows...
-drop table if exists #input
 create table #input(orig varchar(100),pID int identity)
 declare @curLine varchar(100)
 while len(@input) > 0
