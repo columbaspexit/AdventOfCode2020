@@ -2,6 +2,7 @@
 -- Day 1: Report Repair ------------------
 -- via SQL Server-------------------------
 
+-- Data as pasted from site... 
 declare @input varchar(1200) = '1891
 1975
 1987
@@ -20,7 +21,8 @@ while len(@input) > 0
     values (cast(ltrim(rtrim(@curLine)) as int))
 end
 
-select i.ExpEntry, j.ExpEntry,i.ExpEntry * j.ExpEntry[Prod]
+-- Question 1: What's the product of the two entries that add up to 2020? 
+select i.ExpEntry * j.ExpEntry[Q1 Answer]
 from #Expenses i cross join #Expenses j
 where i.ExpEntry + j.ExpEntry = 2020
 
