@@ -13,7 +13,7 @@ declare @Sep varchar(4) = concat('%',char(13),char(10),'%')
 create table #Expenses(ExpEntry int,eID int identity)
 declare @curLine varchar(6)
 while len(@input) > 0
- begin
+begin
     set @curLine = left(@input, isnull(nullif(patindex(@Sep,@input) - 1, -1),len(@input)))
     set @input = substring(@input,isnull(nullif(patindex(@Sep,@input), 0),len(@input)) + len(@Sep)-2, len(@input))
     insert into #Expenses(ExpEntry)
