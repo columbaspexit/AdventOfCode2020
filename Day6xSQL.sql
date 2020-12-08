@@ -11,9 +11,7 @@ yrn
 labirzd
 noypr'
 
--- Double carriage returns mean the start of a new group. 
--- Single carriage return means a new person in the current group.
--- Trial & error found that a carriage return in ascii is the 2-char sequence 13 & 10
+-- Define separator patterns for persons & groups...
 declare @pSep varchar(4) = concat('%',char(13),char(10),'%')
 declare @gSep varchar(7) = concat('%',char(13),char(10),char(13),char(10),'%')
 
