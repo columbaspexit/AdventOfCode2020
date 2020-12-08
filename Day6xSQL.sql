@@ -15,36 +15,29 @@ noypr'
 declare @pSep varchar(4) = concat('%',char(13),char(10),'%')
 declare @gSep varchar(7) = concat('%',char(13),char(10),char(13),char(10),'%')
 
--- tokenize string by group...
+-- Split @input into rows by group...
 declare @allData varchar(max) 
 set @allData = @input 
-drop table if exists #Groups
 create table #Groups(gAnswer varchar(126),gID int identity)
-
 declare @curGrp varchar(126)
 while len(@allData) > 0
  begin
-    -- Peel off just the current group...
     set @curGrp = left(@allData, isnull(nullif(patindex(@gSep,@allData) - 1, -1),LEN(@allData)))
-    -- Cut current group from remaining groups...
     set @allData = SUBSTRING(@allData,isnull(nullif(patindex(@gSep,@allData), 0),LEN(@allData)) + 4, LEN(@allData))
     insert into #Groups(gAnswer)
     values (ltrim(rtrim(@curGrp)))
 end
 
--- tokenize string by person...
+-- Split @input into rows by person...
 set @allData = @input 
-drop table if exists #Persons
 create table #Persons(pAnswer varchar(26),pID int identity,gID int)
-
 declare @curPrsn varchar(26)
 while LEN(@allData) > 0
  begin
     set @curPrsn = left(@allData, ISNULL(nullif(patindex(@pSep,@allData) - 1, -1),LEN(@allData)))
     set @allData = SUBSTRING(@allData,ISNULL(nullif(patindex(@pSep,@allData), 0),LEN(@allData)) + 2, LEN(@allData))
     insert into #Persons(pAnswer)
-    values
-        (ltrim(rtrim(@curPrsn)))
+    values (ltrim(rtrim(@curPrsn)))
 end
 
 -- Count up ''s to id which group a person is in...
