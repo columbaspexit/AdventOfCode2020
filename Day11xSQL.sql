@@ -1,5 +1,5 @@
 -- Advent of Code, 2020 ------------------
--- Day 9: Encoding Error -----------------
+-- Day 11: Seating System ----------------
 -- via SQL Server-------------------------
 
 -- Data as pasted from site... 
